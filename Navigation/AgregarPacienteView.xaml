@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ControlSalud.Navigation.AgregarPacienteView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Offset="0.0" Color="#F5F5F5" />
+            <GradientStop Offset="1.0" Color="#BAA3D4" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="10">
+            <Label
+                Margin="20"
+                Style="{StaticResource SubHeadline}"
+                Text="Por favor introduzca los datos del paciente:" />
+            <Entry Margin="20" Placeholder="Nombre" />
+            <Entry Margin="20" Placeholder="Apellido" />
+
+            <Picker Title="Sexo" Margin="20">
+                <Picker.Items>
+                    <x:String>Masculino</x:String>
+                    <x:String>Femenino</x:String>
+                    <x:String>Otro</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Picker Title="Nivel de actividad física" Margin="20">
+                <Picker.Items>
+                    <x:String>Sedentario: 0 a 30 min. a la semana</x:String>
+                    <x:String>Poco activo: 1 a 2 horas a la semana</x:String>
+                    <x:String>Moderadamente Activo: 2 a 3 horas a la semana</x:String>
+                    <x:String>Activo: 3 a 4 horas a la semana</x:String>
+                    <x:String>Muy Activo: 4 a 5 horas a la semana</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label
+                x:Name="edadLabel"
+                Margin="20"
+                FontSize="Subtitle"
+                Text="{Binding Value, Source={x:Reference edadSlider}, StringFormat='Edad: {0:F0} años.'}" />
+            <Slider
+                x:Name="edadSlider"
+                Maximum="99"
+                Minimum="1"
+                Value="18" />
+
+            <Label
+                Margin="20"
+                FontSize="Subtitle"
+                Text="{Binding Value, Source={x:Reference pesoSlider}, StringFormat='Peso: {0:F0} Kg.'}" />
+
+            <Slider
+                x:Name="pesoSlider"
+                Maximum="400"
+                Minimum="10"
+                Value="66" />
+
+            <Label
+                Margin="20"
+                FontSize="Subtitle"
+                Text="{Binding Value, Source={x:Reference estaturaSlider}, StringFormat='Estatura: {0:F0} cm.'}" />
+
+            <Slider
+                x:Name="estaturaSlider"
+                Maximum="280"
+                Minimum="50"
+                Value="170" />
+
+            <Button Margin="20" Text="Guardar paciente y ver estadísticas" />
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

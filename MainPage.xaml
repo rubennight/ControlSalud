@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ControlSalud.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Offset="0.0" Color="#F5F5F5" />
+            <GradientStop Offset="1.0" Color="#B2D8EB" />
+            <GradientStop Offset="1.0" Color="#BAA3D4" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+
+            <Label
+                SemanticProperties.HeadingLevel="Level1"
+                Style="{StaticResource Headline}"
+                Text="Vitalidapp"
+                TextColor="Black" />
+
+            <Label
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                SemanticProperties.HeadingLevel="Level2"
+                Style="{StaticResource SubHeadline}"
+                Text="Una herramienta para llevar un control sobre los que proteges." />
+
+            <StackLayout
+                HorizontalOptions="CenterAndExpand"
+                Orientation="Horizontal"
+                VerticalOptions="CenterAndExpand">
+                <Image
+                    Margin="25"
+                    HeightRequest="24"
+                    Source="Resources/Images/agregar_usuario.png"
+                    WidthRequest="24" />
+                <Label
+                    FontSize="18"
+                    Text="Agregar Paciente"
+                    TextColor="Green"
+                    VerticalOptions="CenterAndExpand">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+
+            <BoxView
+                Margin="20,10"
+                BackgroundColor="Gray"
+                HeightRequest="1" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -63,7 +63,7 @@
             <ListView x:Name="PacientesListView" IsVisible="False">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Label Text="hola" />
+                        <TextCell Text="{Binding NombreCompleto}" Detail="{Binding Sexo}"></TextCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

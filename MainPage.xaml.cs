@@ -1,25 +1,31 @@
 ﻿using Microsoft.Maui.Controls;
 using Microsoft.Maui.Layouts;
+using System.Threading.Tasks;
+using ControlSalud.Entities;
+using System.Collections.Generic;
 
 namespace ControlSalud
 {
     public partial class MainPage : ContentPage
     {
-        private readonly BdLocalService bdLocalService; 
+        private readonly BdLocalService bdLocalService;
 
-        public MainPage(BdLocalService bdService)
+        public MainPage()
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+            bdLocalService = new BdLocalService();
+        }
 
-            bdLocalService = bdService;
-            Task.Run(async () => await CargarPacientes());
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await CargarPacientes();
         }
 
         private async Task CargarPacientes()
         {
             var pacientes = await bdLocalService.ObtenerPacientes();
-
             MainThread.BeginInvokeOnMainThread(() =>
             {
                 if (pacientes != null && pacientes.Count > 0)
@@ -35,10 +41,10 @@ namespace ControlSalud
                 }
             });
         }
+
         private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
         {
-            Navigation.PushAsync(new Navigation.AgregarPacienteView(bdLocalService));
+            Navigation.PushAsync(new Navigation.AgregarPacienteView());
         }
     }
-
 }

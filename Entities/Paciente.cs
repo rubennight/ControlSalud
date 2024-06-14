@@ -16,5 +16,8 @@ namespace ControlSalud.Entities
 
         [Column("sexo")]
         public string? Sexo {  get; set; }
+
+        [Ignore]
+        public string NombreCompleto => $"{Nombre.ToUpper()} {Apellido.ToUpper()}";
     }
 }

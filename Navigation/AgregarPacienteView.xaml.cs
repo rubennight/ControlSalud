@@ -1,41 +1,41 @@
 using ControlSalud.Entities;
 
-namespace ControlSalud.Navigation;
-
-public partial class AgregarPacienteView : ContentPage
+namespace ControlSalud.Navigation
 {
-	private readonly BdLocalService bdLocalService;
-	public AgregarPacienteView(BdLocalService bdService)
-	{
-		InitializeComponent();
-		NavigationPage.SetHasNavigationBar(this, false);
+    public partial class AgregarPacienteView : ContentPage
+    {
+        private readonly BdLocalService bdLocalService;
 
-		bdLocalService = bdService;
-	}
+        public AgregarPacienteView()
+        {
+            InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
+            bdLocalService = new BdLocalService();
+        }
 
-	private async void OnGuardarPacienteClicked(object sender, EventArgs e)
-	{
-		var nuevoPaciente = new Paciente
-		{
-			Nombre = Nombre.Text,
-			Apellido = Apellido.Text,
-			Sexo = Sexo.SelectedItem.ToString(),
-		};
+        private async void OnGuardarPacienteClicked(object sender, EventArgs e)
+        {
+            var nuevoPaciente = new Paciente
+            {
+                Nombre = Nombre.Text,
+                Apellido = Apellido.Text,
+                Sexo = Sexo.SelectedItem.ToString(),
+            };
 
-		await bdLocalService.ActualizarPaciente(nuevoPaciente);
+            await bdLocalService.AgregarPaciente(nuevoPaciente);
 
-		var nuevoPacienteData = new PacienteData
-		{
-			IdPaciente = nuevoPaciente.IdPaciente,
-			Edad = (int)edadSlider.Value,
-			Peso = (int)pesoSlider.Value,
-			Estatura = (int)estaturaSlider.Value,
-			NivelActividadFisica = ActividadFisica.SelectedItem.ToString(),
-			Fecha = DateTime.Now.ToString("yyyy-MM-dd")
-		};
+            var nuevoPacienteData = new PacienteData
+            {
+                IdPaciente = nuevoPaciente.IdPaciente,
+                Edad = (int)edadSlider.Value,
+                Peso = (int)pesoSlider.Value,
+                Estatura = (int)estaturaSlider.Value,
+                NivelActividadFisica = ActividadFisica.SelectedItem.ToString(),
+                Fecha = DateTime.Now.ToString("yyyy-MM-dd")
+            };
 
-		await bdLocalService.AgregarPacienteData(nuevoPacienteData);
-
-		await Navigation.PopAsync();
-	}
+            await bdLocalService.AgregarPacienteData(nuevoPacienteData);
+            await Navigation.PopAsync();
+        }
+    }
 }

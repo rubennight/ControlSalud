@@ -17,10 +17,19 @@
                 Margin="20"
                 Style="{StaticResource SubHeadline}"
                 Text="Por favor introduzca los datos del paciente:" />
-            <Entry Margin="20" Placeholder="Nombre" />
-            <Entry Margin="20" Placeholder="Apellido" />
+            <Entry
+                x:Name="Nombre"
+                Margin="20"
+                Placeholder="Nombre" />
+            <Entry
+                x:Name="Apellido"
+                Margin="20"
+                Placeholder="Apellido" />
 
-            <Picker Title="Sexo" Margin="20">
+            <Picker
+                x:Name="Sexo"
+                Title="Sexo"
+                Margin="20">
                 <Picker.Items>
                     <x:String>Masculino</x:String>
                     <x:String>Femenino</x:String>
@@ -28,7 +37,10 @@
                 </Picker.Items>
             </Picker>
 
-            <Picker Title="Nivel de actividad física" Margin="20">
+            <Picker
+                x:Name="ActividadFisica"
+                Title="Nivel de actividad física"
+                Margin="20">
                 <Picker.Items>
                     <x:String>Sedentario: 0 a 30 min. a la semana</x:String>
                     <x:String>Poco activo: 1 a 2 horas a la semana</x:String>
@@ -56,7 +68,7 @@
 
             <Slider
                 x:Name="pesoSlider"
-                Maximum="400"
+                Maximum="300"
                 Minimum="10"
                 Value="66" />
 
@@ -67,11 +79,14 @@
 
             <Slider
                 x:Name="estaturaSlider"
-                Maximum="280"
+                Maximum="230"
                 Minimum="50"
                 Value="170" />
 
-            <Button Margin="20" Text="Guardar paciente y ver estadísticas" />
+            <Button
+                Margin="20"
+                Clicked="OnGuardarPacienteClicked"
+                Text="Guardar paciente y ver estadísticas" />
 
         </StackLayout>
     </ScrollView>

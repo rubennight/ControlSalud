@@ -52,6 +52,22 @@
                 BackgroundColor="Gray"
                 HeightRequest="1" />
 
+            <Label
+                x:Name="NoPacientesLabel"
+                FontSize="20"
+                HorizontalOptions="Center"
+                IsVisible="False"
+                Text="No hay pacientes registrados"
+                VerticalOptions="CenterAndExpand" />
+
+            <ListView x:Name="PacientesListView" IsVisible="False">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="hola" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </VerticalStackLayout>
     </ScrollView>
 

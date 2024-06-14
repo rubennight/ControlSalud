@@ -15,6 +15,9 @@ namespace ControlSalud
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<BdLocalService>();
+            builder.Services.AddTransient<MainPage>();
+
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif

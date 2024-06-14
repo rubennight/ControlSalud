@@ -60,10 +60,10 @@
                 Text="No hay pacientes registrados"
                 VerticalOptions="CenterAndExpand" />
 
-            <ListView x:Name="PacientesListView" IsVisible="False">
+            <ListView x:Name="PacientesListView" IsVisible="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding NombreCompleto}" Detail="{Binding Sexo}"></TextCell>
+                        <TextCell Detail="{Binding Sexo}" Text="{Binding NombreCompleto}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

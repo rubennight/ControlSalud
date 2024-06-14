@@ -28,9 +28,9 @@ namespace ControlSalud.Entities
         public int Estatura {  get; set; }
 
         [Column("nivel_actividad_fisica")]
-        public string NivelActividadFisica { get; set; }
+        public string? NivelActividadFisica { get; set; }
         
         [Column("fecha")]
-        public string Fecha { get; set; }
+        public string? Fecha { get; set; }
     }
 }

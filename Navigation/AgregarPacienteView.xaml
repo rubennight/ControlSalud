@@ -83,6 +83,45 @@
                 Minimum="50"
                 Value="170" />
 
+            <Label 
+                FontAttributes="Bold"
+                FontSize="Large"
+                Text="Guía de salud corporal"
+                Margin="0,50,0,20"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="50*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <VerticalStackLayout Grid.Row="0" Grid.Column="0">
+                    <Label Text="Indice Masa Corporal" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Subtitle"/>
+                    <Label x:Name="txtImc" HorizontalTextAlignment="Center"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="0" Grid.Column="1">
+                    <Label Text="% Grasa Corporal" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Subtitle"/>
+                    <Label x:Name="txtGrasa" HorizontalTextAlignment="Center"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Column="0" Grid.Row="1">
+                    <Label Text="Peso ideal" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Subtitle"/>
+                    <Label x:Name="txtPesoIdeal" HorizontalTextAlignment="Center"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Column="1" Grid.Row="1">
+                    <Label Text="TDEE" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Subtitle"/>
+                    <Label x:Name="txtTdee" HorizontalTextAlignment="Center"/>
+                </VerticalStackLayout>
+
+            </Grid>
+            
+
             <Button
                 Margin="20"
                 Clicked="OnGuardarPacienteClicked"

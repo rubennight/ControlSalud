@@ -17,6 +17,18 @@ namespace ControlSalud.Entities
         [Column("sexo")]
         public string? Sexo {  get; set; }
 
+        [Column("edad")]
+        public int Edad { get; set; }
+
+        [Column("peso")]
+        public int Peso { get; set; }
+
+        [Column("estatura")]
+        public int Estatura { get; set; }
+
+        [Column("nivel_actividad_fisica")]
+        public string? NivelActividadFisica { get; set; }
+
         [Ignore]
         public string NombreCompleto => $"{Nombre.ToUpper()} {Apellido.ToUpper()}";
     }

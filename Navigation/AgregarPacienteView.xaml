@@ -33,7 +33,6 @@
                 <Picker.Items>
                     <x:String>Masculino</x:String>
                     <x:String>Femenino</x:String>
-                    <x:String>Otro</x:String>
                 </Picker.Items>
             </Picker>
 
@@ -123,9 +122,9 @@
             
 
             <Button
-                Margin="20"
+                Margin="20,50,20,50"
                 Clicked="OnGuardarPacienteClicked"
-                Text="Guardar paciente y ver estadísticas" />
+                Text="Guardar paciente" />
 
         </StackLayout>
     </ScrollView>

@@ -3,6 +3,7 @@ using Microsoft.Maui.Layouts;
 using System.Threading.Tasks;
 using ControlSalud.Entities;
 using System.Collections.Generic;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ControlSalud
 {
@@ -45,6 +46,15 @@ namespace ControlSalud
         private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
         {
             Navigation.PushAsync(new Navigation.AgregarPacienteView());
+        }
+
+        private void PacientesListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            if (e.Item != null && e.Item is Paciente selectedPaciente)
+            {
+                Navigation.PushAsync(new Navigation.AgregarPacienteView(selectedPaciente));
+            }
+
         }
     }
 }

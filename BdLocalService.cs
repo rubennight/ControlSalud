@@ -11,7 +11,7 @@ namespace ControlSalud
 {
     public class BdLocalService
     {
-        private const string DB_NAME = "bd_local.db";
+        private const string DB_NAME = "bd.db";
         private readonly SQLiteAsyncConnection _connection;
         private bool _inicializado;
 
@@ -27,7 +27,6 @@ namespace ControlSalud
             if (!_inicializado)
             {
                 await _connection.CreateTableAsync<Paciente>();
-                await _connection.CreateTableAsync<PacienteData>();
                 _inicializado = true;
             }
         }
@@ -48,18 +47,6 @@ namespace ControlSalud
         {
             await InitializeAsync();
             await _connection.UpdateAsync(paciente);
-        }
-
-        public async Task<List<PacienteData>> ObtenerPacienteData(int idPaciente)
-        {
-            await InitializeAsync();
-            return await _connection.Table<PacienteData>().Where(x => x.IdPaciente == idPaciente).ToListAsync();
-        }
-
-        public async Task AgregarPacienteData(PacienteData pacienteData)
-        {
-            await InitializeAsync();
-            await _connection.InsertAsync(pacienteData);
         }
     }
 }
